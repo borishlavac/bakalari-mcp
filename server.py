@@ -176,4 +176,5 @@ app = mcp.streamable_http_app()
 app.add_middleware(TokenAuth)
 
 if __name__ == "__main__":
-    uvicorn.run(app, host=HOST, port=PORT)
+    # access_log=False: URL obsahuje ?token=..., nesmi se zapisovat do logu
+    uvicorn.run(app, host=HOST, port=PORT, access_log=False)
